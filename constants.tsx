@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Anchor, Users, Heart, Crown, Waves, ShieldCheck, Star, Camera, Clock, UserCheck } from 'lucide-react';
-import { Destination, Experience, Testimonial, FAQItem } from './types';
+import { Destination, Experience, Testimonial, FAQItem } from './types.ts';
 
 export const WHATSAPP_LINK = "https://wa.me/5512991810650";
 export const INSTAGRAM_LINK = "https://instagram.com/simborapasseiobarco";
