@@ -1,0 +1,7 @@
+{
+  "name": "Simbora Passeio de Barco - Landing Page",
+  "description": "Uma landing page sofisticada e de alta conversão para passeios de barco exclusivos em Caraguatatuba e Ilhabela.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
