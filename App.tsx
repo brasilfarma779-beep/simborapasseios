@@ -105,7 +105,7 @@ const App: React.FC = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-ocean">
           <img 
-            src="https://images.unsplash.com/photo-1540759786422-c60d5ed09623?auto=format&fit=crop&q=80&w=2000" 
+            src="https://i.imgur.com/DXxYSBk.jpg" 
             alt="Passeio de Barco e Mergulho em Ilhabela" 
             className="w-full h-full object-cover animate-slow-zoom opacity-90"
           />
