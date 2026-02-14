@@ -7,7 +7,6 @@ import {
   ChevronRight, 
   Star, 
   Phone, 
-  MapPin, 
   CheckCircle,
   MessageCircle,
   Users,
@@ -22,7 +21,6 @@ import {
   DESTINATIONS, 
   EXPERIENCES, 
   DIFFERENTIALS, 
-  TESTIMONIALS, 
   FAQ, 
   WHATSAPP_LINK, 
   INSTAGRAM_LINK 
@@ -52,15 +50,6 @@ const App: React.FC = () => {
       default: return <Anchor {...props} />;
     }
   };
-
-  const galleryImages = [
-    "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1567891777981-99775bb238a1?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1520520731457-9283dd14aa66?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&q=80&w=600"
-  ];
 
   return (
     <div className="min-h-screen bg-white selection:bg-gold selection:text-white overflow-x-hidden">
@@ -114,11 +103,11 @@ const App: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-ocean">
           <img 
-            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=2000" 
-            alt="Ilhabela" 
-            className="w-full h-full object-cover animate-slow-zoom"
+            src="https://images.unsplash.com/photo-1540759786422-c60d5ed09623?auto=format&fit=crop&q=80&w=2000" 
+            alt="Passeio de Barco e Mergulho em Ilhabela" 
+            className="w-full h-full object-cover animate-slow-zoom opacity-90"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
         </div>
@@ -138,12 +127,6 @@ const App: React.FC = () => {
               className="group bg-gold hover:bg-white text-ocean hover:text-ocean px-12 py-6 rounded-full font-bold text-xl flex items-center justify-center gap-3 transition-all duration-500 shadow-2xl transform hover:-translate-y-1 active:scale-95"
             >
               <MessageCircle size={28} className="group-hover:animate-pulse" /> Reservar no WhatsApp
-            </a>
-            <a 
-              href="#roteiro"
-              className="bg-white/10 hover:bg-white/25 backdrop-blur-xl text-white border border-white/40 px-12 py-6 rounded-full font-bold text-xl flex items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <MapPin size={28} /> Ver Roteiro Completo
             </a>
           </div>
         </div>
@@ -167,13 +150,18 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {DESTINATIONS.map((dest, idx) => (
               <div key={dest.id} className="group relative overflow-hidden rounded-3xl shadow-2xl bg-white hover:shadow-gold/10 transition-all duration-500">
-                <div className="h-80 overflow-hidden relative">
-                  <img src={dest.image} alt={dest.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <div className="h-80 overflow-hidden relative bg-slate-100">
+                  <img 
+                    src={dest.image} 
+                    alt={dest.name} 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    loading="lazy"
+                  />
                   <div className="absolute top-4 right-4 bg-ocean/90 text-white px-4 py-2 rounded-full text-xs font-bold">Parada {idx + 1}</div>
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-ocean mb-3">{dest.name}</h3>
-                  <p className="text-gray-600 mb-6">{dest.description}</p>
+                  <p className="text-gray-600 mb-6 line-clamp-2">{dest.description}</p>
                   <div className="flex items-center gap-2 text-gold font-bold text-sm uppercase"><CheckCircle size={20} /> Mergulho e Águas Cristalinas</div>
                 </div>
               </div>
@@ -182,99 +170,38 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Experiências Section */}
-      <section id="experiencias" className="py-32 bg-ocean text-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">Experiências Simbora</h2>
-            <div className="w-24 h-1.5 bg-gold mx-auto mb-8 rounded-full"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {EXPERIENCES.map((exp) => (
-              <div key={exp.id} className="bg-white/5 backdrop-blur-md border border-white/10 p-12 rounded-[40px] hover:bg-white/10 transition-all duration-500 group">
-                {getIcon(exp.icon)}
-                <h3 className="text-3xl font-bold mb-4 text-gold">{exp.title}</h3>
-                <p className="text-white/80 text-lg mb-10">{exp.description}</p>
-                <a href={WHATSAPP_LINK} target="_blank" className="inline-flex items-center gap-2 text-white font-bold hover:text-gold transition-colors text-lg">
-                  Consultar Disponibilidade <ChevronRight />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Diferenciais Section */}
-      <section id="diferenciais" className="py-32">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-20 items-center">
-          <div className="lg:w-1/2">
-            <h2 className="text-5xl font-bold text-ocean mb-12">Excelência em cada <span className="text-gold">Detalhe</span></h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-              {DIFFERENTIALS.map((diff, i) => (
-                <div key={i} className="flex flex-col gap-4 p-6 rounded-3xl hover:bg-slate-50">
-                  <div className="bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center">{diff.icon}</div>
-                  <h4 className="text-xl font-bold text-ocean">{diff.title}</h4>
-                  <p className="text-gray-600">{diff.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="lg:w-1/2 relative">
-            <img src="https://images.unsplash.com/photo-1567891777981-99775bb238a1?auto=format&fit=crop&q=80&w=1000" alt="Barco" className="rounded-[50px] shadow-2xl h-[600px] object-cover" />
-            <div className="absolute -bottom-10 -left-10 bg-gold p-10 rounded-[40px] text-white shadow-2xl hidden md:block animate-float">
-              <p className="text-6xl font-bold">100%</p>
-              <p className="text-xl font-medium tracking-widest uppercase">Satisfação</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Instagram Gallery */}
-      <section className="py-32 bg-slate-50">
+      {/* Diferenciais Section - Sem imagem para garantir carregamento perfeito */}
+      <section id="diferenciais" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-ocean mb-4">Galeria Simbora</h2>
-            <a href={INSTAGRAM_LINK} target="_blank" className="text-gold font-bold flex items-center justify-center gap-2 hover:underline">
-              <Instagram size={20} /> @simborapasseiobarco
-            </a>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold text-ocean mb-6">Excelência em cada <span className="text-gold">Detalhe</span></h2>
+            <div className="w-24 h-1.5 bg-gold mx-auto mb-8 rounded-full"></div>
+            <p className="text-gray-600 text-xl max-w-3xl mx-auto">
+              Nosso compromisso é com a sua segurança, conforto e felicidade em cada milha navegada.
+            </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {galleryImages.map((img, i) => (
-              <div key={i} className="aspect-square overflow-hidden rounded-3xl shadow-lg group relative">
-                <img src={img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={`Galeria ${i}`} />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Instagram className="text-white w-10 h-10" />
-                </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {DIFFERENTIALS.map((diff, i) => (
+              <div key={i} className="flex flex-col items-center text-center gap-4 p-10 rounded-[40px] bg-slate-50 hover:bg-white hover:shadow-2xl hover:shadow-ocean/5 transition-all duration-500 border border-transparent hover:border-slate-100 group">
+                <div className="bg-white w-20 h-20 rounded-3xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500">{diff.icon}</div>
+                <h4 className="text-2xl font-bold text-ocean mt-4">{diff.title}</h4>
+                <p className="text-gray-600 text-lg leading-relaxed">{diff.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ & Final CTA */}
-      <section className="py-32 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-5xl font-bold text-ocean text-center mb-20">Perguntas Frequentes</h2>
-          <div className="space-y-6 mb-32">
-            {FAQ.map((item, i) => (
-              <div key={i} className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200">
-                <button 
-                  className="w-full px-10 py-8 flex justify-between items-center text-left"
-                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                >
-                  <span className="text-xl font-bold text-ocean">{item.question}</span>
-                  {activeFaq === i ? <ChevronUp className="text-gold" /> : <ChevronDown className="text-gold" />}
-                </button>
-                {activeFaq === i && <div className="px-10 pb-8 text-gray-600 text-lg animate-fade-in">{item.answer}</div>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      {/* Final CTA */}
       <section className="py-40 relative bg-ocean overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <img src="https://images.unsplash.com/photo-1520520731457-9283dd14aa66?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="Background" />
+        <div className="absolute inset-0 opacity-30 bg-ocean">
+          <img 
+            src="https://images.unsplash.com/photo-1520520731457-9283dd14aa66?auto=format&fit=crop&q=80&w=2000" 
+            className="w-full h-full object-cover" 
+            alt="Pôr do Sol Ilhabela" 
+            loading="lazy"
+          />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <h2 className="text-6xl font-bold text-white mb-8">Reserve Seu Lugar no Paraíso</h2>

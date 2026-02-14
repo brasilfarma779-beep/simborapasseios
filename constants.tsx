@@ -35,37 +35,13 @@ export const DESTINATIONS: Destination[] = [
     id: 'castelhanos',
     name: 'Praia de Castelhanos',
     description: 'A joia selvagem de Ilhabela. Paisagem rústica com formato de coração e águas intensas.',
-    image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1567891777981-99775bb238a1?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'eustaquio',
     name: 'Saco do Eustáquio',
     description: 'Acesso exclusivo por mar. Águas que parecem uma piscina natural de tão calmas e transparentes.',
     image: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&q=80&w=1200'
-  },
-  {
-    id: 'fome',
-    name: 'Praia da Fome',
-    description: 'Pequena, charmosa e isolada. O cenário perfeito para quem busca paz e contato com a natureza.',
-    image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=1200'
-  },
-  {
-    id: 'jabaquara',
-    name: 'Praia do Jabaquara',
-    description: 'Cercada por montanhas imponentes, é uma das baías mais preservadas e cênicas da ilha.',
-    image: 'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&q=80&w=1200'
-  },
-  {
-    id: 'sino',
-    name: 'Praia do Sino',
-    description: 'Famosa pelas pedras que emitem sons metálicos. Mar raso, calmo e repleto de coqueiros.',
-    image: 'https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?auto=format&fit=crop&q=80&w=1200'
-  },
-  {
-    id: 'azeda',
-    name: 'Praia da Azeda',
-    description: 'Um paraíso de águas mornas e transparentes, ideal para fotos subaquáticas inesquecíveis.',
-    image: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=1200'
   }
 ];
 
@@ -111,44 +87,6 @@ export const DIFFERENTIALS = [
   { icon: <Anchor className="w-8 h-8 text-gold" />, title: 'Experiência Memorável', desc: 'Não é apenas um passeio, é a criação de memórias preciosas.' },
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: '1',
-    name: 'Mariana Silva',
-    text: 'O melhor passeio que já fiz! O capitão foi extremamente atencioso e o roteiro pelas praias é simplesmente impecável.',
-    rating: 5,
-    location: 'São Paulo, SP'
-  },
-  {
-    id: '2',
-    name: 'Ricardo Oliveira',
-    text: 'Segurança nota mil. Levei minha família e me senti muito tranquilo. O barco é excelente e as praias são lindas.',
-    rating: 5,
-    location: 'Campinas, SP'
-  },
-  {
-    id: '3',
-    name: 'Carla e João',
-    text: 'Fizemos o passeio privativo e foi a melhor escolha. Privacidade total e um pôr do sol que nunca vamos esquecer.',
-    rating: 5,
-    location: 'SJC, SP'
-  },
-  {
-    id: '4',
-    name: 'Bruno Mendes',
-    text: 'Atendimento premium de verdade. Do agendamento até o desembarque, tudo perfeito e muito profissional.',
-    rating: 5,
-    location: 'Rio de Janeiro, RJ'
-  },
-  {
-    id: '5',
-    name: 'Fernanda Lima',
-    text: 'As paradas de mergulho são fantásticas. Vi muitos peixes e tartarugas na Ilha das Cabras. Recomendo demais!',
-    rating: 5,
-    location: 'Curitiba, PR'
-  }
-];
-
 export const FAQ: FAQItem[] = [
   {
     question: "De onde partem os passeios?",
@@ -161,9 +99,5 @@ export const FAQ: FAQItem[] = [
   {
     question: "O cooler com gelo está incluso?",
     answer: "Sim! Disponibilizamos cooler com gelo e água mineral cortesia para manter suas bebidas sempre geladas durante o trajeto."
-  },
-  {
-    question: "E se o tempo não estiver bom?",
-    answer: "Monitoramos as condições marítimas constantemente. Se não houver segurança para navegar, reagendamos seu passeio sem custos."
   }
 ];
